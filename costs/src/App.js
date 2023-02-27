@@ -15,25 +15,24 @@ function App() {
         <li>Home</li>
         <li>Home</li>  
       </ul>
-      <switch>
-       
-        <Router exact path="/">
+      <conteiner>
+        <Route exact path="/">
           <Home/>
-        </Router>
-        <Router exact path="/company">
+        </Route>
+        <Route exact path="/company">
           <Company/>
-        </Router>
-        <Router exact path="/contact">
+        </Route>
+        <Route exact path="/contact">
           <Contact/>
-        </Router>
-        <Router exact path="/newproject">
+        </Route>
+        <Route exact path="/newproject">
           <NewProject/>
-        </Router>
-     
-        
-      </switch>
+        </Route>
+      </conteiner>
+
       <p>Footer</p>
     </Router>
+
   
   );
 }
