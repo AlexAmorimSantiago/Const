@@ -1,4 +1,4 @@
 function NewProject(){
-    return <h1>yNewProject</h1>
+    return <h1>NewProject</h1>
 }
 export default NewProject
