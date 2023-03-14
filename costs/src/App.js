@@ -1,9 +1,10 @@
 import {Route,Routes,Link,BrowserRouter} from "react-router-dom";
-import Home from './components/pages/Home'
-import Contact from './components/pages/Contact'
-import Company from './components/pages/Company'
-import NewProject from './components/pages/NewProject'
-import Container from './components/layout/Container'
+import Home from './componentes/pages/Home'
+import Contact from './componentes/pages/Contact'
+import Company from './componentes/pages/Company'
+import NewProject from './componentes/pages/NewProject'
+
+import Container from './componentes/layout/Container'
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
         <Link to='/company'>Empresa</Link>
         <Link to='/newproject'>Novo Projeto</Link>
       </div>
-      <Container customClass='minHeight'>
+      <Container customClass="min-height">
         <Routes>
-          <Route exact path='/' element={<Home />} />
+          <Route exact path='/ element'element={<Home />} />
           <Route exact path='/company' element={<Company />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/newproject' element={<NewProject />} />
