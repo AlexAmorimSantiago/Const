@@ -2,10 +2,10 @@ import style from '/NewProject.module.css'
 
 function NewProject(){
     return (
-    <div>
+    <div className={style.newproject_container}>
         <h1>Criar Projeto</h1>
         <p>Crie seu projeto</p>
-        <p>formulário</p>
+        <ProjectForm />
     </div>
 
     )
