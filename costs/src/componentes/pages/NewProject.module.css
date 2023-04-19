@@ -1,9 +1,9 @@
-.new_project{
+.newproject_container{
     width: 450px;
     margin: 0 auto;
     padding: 3em;
 }
-.new_project h1{
+.newproject_container h1{
     margin-bottom: 0.5em;
 }
 .newproject_container p{
