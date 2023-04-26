@@ -1,4 +1,4 @@
-import ProjectsForm from './ProjectForm.js'
+import ProjectForm from '../project/ProjectForm'
 import style from './NewProject.module.css'
 
 function Projects(){
