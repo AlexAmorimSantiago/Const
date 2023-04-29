@@ -6,7 +6,7 @@ import style from './NewProject.module.css'
 
 function NewProject(){
 
-    const history =useHistory()
+    const history = useHistory ()
 
     function createPost(project){
 

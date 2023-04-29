@@ -24,10 +24,18 @@ useEffect(() => {
         setCategorie(data)
     })
     .catch(err => console.log(err)) 
-}, [])
+}, []) 
+    const submit = (e) => {
+     e.preventDefault()
+     handleSubmit(project)
+}
+
+function handleChange (e){
+    
+}
 
     return(
-        <form className={style.form}>
+        <form onSubmit = {submit} className={style.form}>
             <Input type="text"
              text="Nome do projeto"
               name="name" 
