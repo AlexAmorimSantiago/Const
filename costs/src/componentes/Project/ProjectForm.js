@@ -7,10 +7,10 @@ import SubmitButton from '../form/SubmitButton'
 import style from './ProjectForm.module.css'
 
 
-function ProjectForm({handSubmit, btnText, projectData }){
+function ProjectForm({handleSubmit, btnText, projectData }){
 
-    const [categories, setCategories] = useState([])
-    const [project, setProject] = useState(projectData || {})
+     const[categories, setCategorie] = useState([])
+     const[project, setProject] = useState(projectData || {})
     
 useEffect(() => {
     fetch("http://localhost:5000/categories", {
@@ -20,19 +20,31 @@ useEffect(() => {
         },
     }) 
     .then((resp) => resp.json())
-    .then((data) =>{
-        setCategorie(data)
+    .then((data) => {
+        setCategorie(data) 
     })
-    .catch(err => console.log(err)) 
+    .catch((err) => console.log(err)) 
 }, []) 
     const submit = (e) => {
      e.preventDefault()
-     handleSubmit(project)
+     //console.log(project)
+     handleSubmit(project) 
+}
+
+function handleCategory (e){
+    setProject({ 
+        ...project, 
+        category: {
+        id: e.target.value,
+        name: e.target.options[e.target.selectdIndex].text,
+    },
+        
+    })
 }
 
 function handleChange (e){
+    setProject({ ...project, [e.target.name]: e.target.value })
     
-}
 
     return(
         <form onSubmit = {submit} className={style.form}>
@@ -40,16 +52,22 @@ function handleChange (e){
              text="Nome do projeto"
               name="name" 
               placeholder="Insira o nome do projeto"
+              handleOnchange = {handleChange}
+              value ={project.name ? project.name : ''}
             />
             <Input type="number"
              text="Orçamento do projeto"
               name="budget" 
               placeholder="Insira o orçamento total"
+              handleOnchange = {handleChange}
+              value ={project.budget ? project.budget : ''}
             />
            <Select 
            name="category_id" 
            text="Selecione a categoria"
            options={categories}
+           handleOnchange = {handleCategory}
+           value={project.category ? project.category.id :''}
            
            />
 
@@ -57,5 +75,6 @@ function handleChange (e){
         </form>
 
     )
+}
 }
 export default ProjectForm

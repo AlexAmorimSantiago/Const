@@ -1,4 +1,4 @@
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 import ProjectForm from '../project/ProjectForm'
 
@@ -6,12 +6,12 @@ import style from './NewProject.module.css'
 
 function NewProject(){
 
-    const history = useHistory ()
+    const navigate = useNavigate () 
 
     function createPost(project){
 
         //inicializar o projeto cost e serviço
-        project.cost = 0
+        project.costs = 0
         project.services = []
 
         fetch("http://localhost:5000/project",{
@@ -24,6 +24,7 @@ function NewProject(){
         .then((data) => {
             console.log(data)
             //redirect
+            navigate.push('/project',{message: 'projecto criado com sucesso!'})
         })
         .catch((err) => console.log(err))
     }
