@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import style from './Message.module.css'
+import styles from '.Message.module.css'
 
 function Message({type, msg}){
 
@@ -15,19 +15,20 @@ function Message({type, msg}){
 
     const timer = setTimout(() => (
         setVisible(false)
-    ), 3000)
+    ), 300)
 
-    return () => clearTimout (time)
+    return () => clearTimout (timer)
 
 
     }, [msg])
 
-    return(
+      return(
         <>
-        {visible &&(
-        <div className={'${style.message} ${styles[type]}'}>{msg}</div>)}
+        {visible &&(<div className={'${style.message} ${styles[type]}'}>{msg}</div>)}
         </>
 
     )
 }
+
+  
 export default Message
